@@ -71,6 +71,15 @@ const SPOTS={'v-home':[[445,376,385,67,'como-llegar','Cómo llegar'],[448,468,42
 'v-como-llegar':[back],'v-confirmacion':[[60,70,120,110,'','Volver al inicio']],'v-alojamientos':[[60,115,130,110,'','Volver al inicio']],'v-gracias':[[225,1205,490,120,'','Ir a Home']],'v-turistas':[[50,60,130,110,'','Volver al inicio']],'v-lista':[[50,130,130,110,'','Volver al inicio']]};
 for(const id in SPOTS){const st=$('#'+id+' .stage');for(const [x,y,w,h,to,l] of SPOTS[id])st.append(mk('a','hs',[x,y,w,h],{href:'#/'+to,'aria-label':l}))}
 
+const MAPS=[[400,355,415,195,'https://maps.app.goo.gl/dQQ34G8o6KNjNDtU7','Plaza de las Flores en Google Maps'],
+[405,578,380,62,'https://maps.app.goo.gl/rFfma52iJ4dcLnXP9','La Posada del Pez en Google Maps'],
+[405,652,410,53,'https://maps.app.goo.gl/h3WUjF1qQ5k4AVmf9','Mercado de Correos en Google Maps'],
+[440,968,485,217,'https://maps.app.goo.gl/1KCfzqJBWqrSuxfM9','La Manga / Cabo de Palos en Google Maps'],
+[450,1222,430,78,'https://maps.app.goo.gl/UuUwxyKqaMeftKgv5','Santiago de la Ribera en Google Maps'],
+[450,1305,420,87,'https://maps.app.goo.gl/aZ7Lzp5YNHQby5JZA','Mar Menor en Google Maps'],
+[450,1430,465,170,'https://maps.app.goo.gl/QEvGiPXJ5UQbBdAM6','Calblanque en Google Maps']];
+for(const [x,y,w,h,u,l] of MAPS)$('#v-turistas .stage').append(mk('a','hs',[x,y,w,h],{href:u,target:'_blank',rel:'noopener noreferrer','aria-label':l}));
+
 const st=$('#v-confirmacion .stage');
 const txt=(id,r,label,ac)=>{const i=mk('input','txt',r,{type:'text',id,'aria-label':label,autocomplete:ac||'off'});st.append(i);return i};
 const nombre=txt('nombre',[133,598,679,69],'Nombre y apellidos','name');
