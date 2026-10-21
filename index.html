@@ -124,7 +124,7 @@ cb.style.cssText+='background:none;border:0;cursor:pointer;';ok.textContent='¡C
 cb.addEventListener('click',async()=>{let hecho=false;try{await navigator.clipboard.writeText(IBAN);hecho=true}catch(e){const x=document.createElement('textarea');x.value=IBAN;x.style.cssText='position:fixed;opacity:0';document.body.append(x);x.select();try{hecho=document.execCommand('copy')}catch(e2){}x.remove()}
  if(!hecho){prompt('Copia el número de cuenta:',IBAN);return}
  ok.classList.add('on');setTimeout(()=>ok.classList.remove('on'),1800)});
-for(const [id,cx,y] of [['v-como-llegar',550,203],['v-alojamientos',517,224],['v-turistas',483,150]]){const w=414,h=w*169/841;$('#'+id+' .stage').append(mk('div','hint',[cx-w/2,y,w,h],{role:'note','aria-label':'Haz clic en el título para ir al enlace'}))}
+for(const [id,cx,y] of [['v-como-llegar',550,203],['v-alojamientos',517,224],['v-turistas',483,150]]){const w=310,h=w*169/841;$('#'+id+' .stage').append(mk('div','hint',[cx-w/2,y,w,h],{role:'note','aria-label':'Haz clic en el título para ir al enlace'}))}
 const vs=[...document.querySelectorAll('.view')];
 const go=()=>{const v=document.getElementById('v-'+(location.hash.replace(/^#\/?/,'')||'home'))||$('#v-home');vs.forEach(x=>x.hidden=x!==v);scrollTo(0,0)};
 addEventListener('hashchange',go);go();
